@@ -55,6 +55,7 @@ a:hover {
 .main {
     background-color: #FBFBFB;
     padding-left:.7em;
+    padding-bottom:1em;
 }
 
 .main label {
@@ -72,8 +73,10 @@ a:hover {
     padding-left:.3em;
 }
 
-/*
 .footer {
     background-color: #ECECEC;
+    text-align:center;
+    font-size:.8em;
+    padding-top: .05em;
+    padding-bottom: .01em;
 }
-*/
