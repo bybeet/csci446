@@ -9,6 +9,15 @@
             <h1>The Magic Life Figure-Outer!</h1>
             <p>Figuring out your life for you, so you don't have to...</p>
         </div>
+        <div class='navigation'>
+            <a href="#">Home</a>
+            <a href="#">Interests</a>
+            <a href="#">Health</a>
+            <a href="#">Academic</a>
+            <a href="#">Professional</a>
+            <a href="#">Fun</a>
+            <a href="#">Evil</a>
+        </div>
         <div class='main'>
             <h2>Lorem Ipsum Dolor Sit Amet.</h2>
             <p>How do you feel today?</p>
@@ -16,8 +25,15 @@
             <br>
             (choose all that apply)</p>
             <form>
-                How do you feel today?<input type="text" name="feel_today"/>
-                <br>How would you like to feel?<br>(choose all that apply)<input type="text" name="like_to_feel"/>
+                <label for="feel_today">How do you feel today?</label>
+                <input type="text" id="feel_today"/>
+                <label for="like_to_feel"><br>How would you like to feel?<br>(choose all that apply)</label>
+                <select multiple id="like_to_feel">
+                    <option value="numb">Comfortably numb</option>
+                    <option value="grumpy">Grumpy as poop, you jerk</option>
+                    <option value="happy">Happy like I'm on controlled substances</option>
+                    <option value="normal">Normal. Absolutely Normal.</option>
+                </select>
                 <br><input type="submit" value="Feel me!"/>
             </form>
         </div>
@@ -27,7 +43,7 @@
         </div>
 
         <div class='footer'>
-            <p>FOOTER: @2011 Borg-Like Monstrosity of Mind Control, Inc. All rights reserved.</p>
+            <p>@2011 Borg-Like Monstrosity of Mind Control, Inc. All rights reserved.</p>
         </div>
     </body>
 </html>

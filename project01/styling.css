@@ -1,14 +1,50 @@
 body {
     background-color: #999999;
     font-family: Helvetica, Arial;
+    border-style: solid;
+    border-width: thin;
 }
 
 .header {
     background-color: #C0C0C0;
+    position:absolute;
+}
+
+.header p {
+    position:absolute;
+    bottom:9em;
+}
+
+a {
+    text-decoration:none;
+    font-size:1.25em;
+    margin-right:1em;
+}
+
+a:visited {
+    color: #FFFFFF;
+}
+
+a:link {
+    color: #FFFFFF;
+}
+
+a:hover {
+    color: #006AC1;
+}
+
+.navigation {
+    background-color: #000000;
 }
 
 .progress {
     background-color: #EBECFE;
+    position:absolute;
+    left:25em;
+    bottom:20em;
+    padding-right:1em;
+    padding-bottom:1em;
+    padding-left:.3em;
 }
 
 .main {
