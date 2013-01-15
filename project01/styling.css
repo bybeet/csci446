@@ -55,28 +55,38 @@ a:hover {
 .main {
     background-color: #FBFBFB;
     padding-left:.7em;
+    padding-top:.005em;
     padding-bottom:1em;
 }
 
-.main label {
-    font-style:none;
-    text-align:left;
+.main h2 {
+    margin-top:.5em;
+}
+
+.main table {
+    margin-top:-.5em;
+}
+
+#button {
+    -webkit-border-radius: 10px;
+    border-radius:10px;
 }
 
 .progress {
     background-color: #EBECFE;
-    position:absolute;
-    left:55em;
-    bottom:22em;
+    margin-right:1em;
+    margin-left:37em;
+    margin-top:-13.5em;
     padding-right:1em;
-    padding-bottom:1em;
     padding-left:.3em;
+    padding-bottom:.5em;
 }
 
 .footer {
     background-color: #ECECEC;
     text-align:center;
     font-size:.8em;
+    margin-top:8.9em;
     padding-top: .05em;
     padding-bottom: .01em;
 }
