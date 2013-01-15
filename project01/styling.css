@@ -3,6 +3,7 @@ body {
     font-family: Helvetica, Arial;
     border-style: solid;
     border-width: thin;
+    width:50em;
 }
 
 .header {
@@ -34,6 +35,10 @@ a:hover {
 }
 
 .navigation {
+    position:absolute;
+    padding-bottom:.7em;
+    padding-top:.7em;
+    padding-left:.7em;
     background-color: #000000;
 }
 
