@@ -20,18 +20,27 @@
         </div>
         <div class='main'>
             <h2>Lorem Ipsum Dolor Sit Amet.</h2>
+            <table>
             <form>
-                <label for="feel_today">How do you feel today?</label>
-                <input type="text" id="feel_today"/>
-                <label for="like_to_feel"><br>How would you like to feel?<br>(choose all that apply)</label>
-                <select multiple id="like_to_feel">
+                <tr>
+                    <th><label for="feel_today">How do you feel today?</label></th>
+                    <th><input type="text" id="feel_today"/></th>
+                </tr>
+                <tr>
+                    <th><label for="like_to_feel"><br>How would you like to feel?<br>(choose all that apply)</label></th>
+                    <th><select multiple id="like_to_feel">
                     <option value="numb">Comfortably numb</option>
                     <option value="grumpy">Grumpy as poop, you jerk</option>
                     <option value="happy">Happy like I'm on controlled substances</option>
                     <option value="normal">Normal. Absolutely Normal.</option>
-                </select>
-                <br><input type="submit" value="Feel me!"/>
+            </select></th>
+        </tr>
+        <tr>
+            <th/>
+                <th><br><input type="submit" value="Feel me!"/></th>
+            </tr>
             </form>
+        </table>
         </div>
         <div class='progress'>
             <h3>Current Progress in Life</h3>

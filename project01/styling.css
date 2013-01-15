@@ -57,17 +57,22 @@ a:hover {
     padding-left:.7em;
 }
 
-/*
+.main label {
+    font-style:none;
+    text-align:left;
+}
+
 .progress {
     background-color: #EBECFE;
     position:absolute;
-    left:25em;
-    bottom:20em;
+    left:55em;
+    bottom:22em;
     padding-right:1em;
     padding-bottom:1em;
     padding-left:.3em;
 }
 
+/*
 .footer {
     background-color: #ECECEC;
 }
