@@ -38,18 +38,11 @@ class Top100Albums
   	response.write(File.open("list.html", "rb").read)
   	response.write("<h2>Sorted by #{request['order'].capitalize}</h2>")
   	@info.sort_by { |x| x[request['order'].to_sym] }.each do |album|
+  		columns = "<td>#{album[:rank]}</td><td>#{album[:name]}</td><td>#{album[:year]}</td></tr>"
   		if album[:rank] == request['rank'].to_sym
-  			response_write = "<tr class=\"highlight\">
-  			<td>#{album[:rank]}</td>
-  			<td>#{album[:name]}</td>
-  			<td>#{album[:year]}</td>
-  			</tr>"
+  			response_write = "<tr class=\"highlight\">" + columns
   		else
-  			response_write = "<tr>
-  			<td>#{album[:rank]}</td>
-  			<td>#{album[:name]}</td>
-  			<td>#{album[:year]}</td>
-  			</tr>"
+  			response_write = "<tr>" + columns
   		end
   		response.write(response_write)
   	end
