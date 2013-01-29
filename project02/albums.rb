@@ -26,8 +26,21 @@ class Top100Albums
   
   def render_list(request)
   	response = Rack::Response.new
-  	
-  	response.write(request["rank"])
+  	File.open("list.html", "rb") { |list| response.write(list.read) }
+  	response.write("<h2>Sorted by #{request['order'].capitalize}</h2>")
+  	albums = File.open("top_100_albums.txt").read
+  	i = 1
+  	albums.each_line do |album|
+  		info = album.split(",")
+  		response.write(
+  			"<tr>
+  			<td>#{i}</td>
+  			<td>#{info[0]}</td>
+  			<td>#{info[1]}</td>
+  			</tr>"
+  		)
+  		i += 1
+  	end
   	response.finish
   end
   
