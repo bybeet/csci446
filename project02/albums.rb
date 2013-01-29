@@ -8,10 +8,10 @@ class Top100Albums
   	i = 1
   	albums.each_line do |album|
   		text = album.split(",")
-  		@info.push(["rank"=> i, "title"=> text[0], "year"=> text[1].strip])
+  		@info.push({ :rank=> i, :name=> text[0], :year=> text[1].strip })
   		i += 1
   	end
-  	puts @info[0]
+
   	case request.path
   		when "/" then render_form(request)
 	  	when "/form" then render_form(request)
@@ -37,18 +37,20 @@ class Top100Albums
   	response = Rack::Response.new
   	File.open("list.html", "rb") { |list| response.write(list.read) }
   	response.write("<h2>Sorted by #{request['order'].capitalize}</h2>")
-  	@info.each do |album, index|
-  		if album['rank'] == request['rank']
+  	order = request['order'].to_sym
+  	@info.sort_by! { |x| x[order] }
+  	@info.each do |album|
+  		if album[:rank] == request['rank'].to_sym
   			response_write = "<tr class=\"highlight\">
-  			<td>#{album['rank']}</td>
-  			<td>#{album['title']}</td>
-  			<td>#{album['year']}</td>
+  			<td>#{album[:rank]}</td>
+  			<td>#{album[:name]}</td>
+  			<td>#{album[:year]}</td>
   			</tr>"
   		else
   			response_write = "<tr>
-  			<td>#{album['rank']}</td>
-  			<td>#{album['title']}</td>
-  			<td>#{album['year']}</td>
+  			<td>#{album[:rank]}</td>
+  			<td>#{album[:name]}</td>
+  			<td>#{album[:year]}</td>
   			</tr>"
   		end
   		response.write(response_write)
