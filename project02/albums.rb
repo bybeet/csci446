@@ -18,12 +18,9 @@ class Top100Albums
   
   def render_form(request)
   	response = Rack::Response.new
-  	response_data = ""
-  	File.open("form.html", "rb") { |form| response_data << form.read }
-  	1.upto(100) { |i| response_data << "<option value=\"#{i}\">#{i}</option>\n" }
-  	File.open("form2.html", "rb") { |form| response_data << form.read }
-  	response.write(response_data)
-	puts response_data
+  	File.open("form.html", "rb") { |form| response.write(form.read) }
+  	1.upto(100) { |i| response.write("<option value=\"#{i}\">#{i}</option>\n") }
+  	File.open("form2.html", "rb") { |form| response.write(form.read) }
   	response.finish
   end
   
