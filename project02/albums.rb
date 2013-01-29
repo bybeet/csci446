@@ -4,6 +4,7 @@ class Top100Albums
   def call(env)
   	request = Rack::Request.new(env)
   	case request.path
+  		when "/" then render_form(request)
 	  	when "/form" then render_form(request)
 	  	when "/list" then render_list(request)
 	  	when "/shutdown" then exit!
@@ -17,12 +18,19 @@ class Top100Albums
   
   def render_form(request)
   	response = Rack::Response.new
-  	File.open("form.html", "rb") { |form| response.write(form.read) }
+  	response_data = ""
+  	File.open("form.html", "rb") { |form| response_data << form.read }
+  	1.upto(100) { |i| response_data << "<option value=\"#{i}\">#{i}</option>\n" }
+  	File.open("form2.html", "rb") { |form| response_data << form.read }
+  	response.write(response_data)
+	puts response_data
   	response.finish
   end
   
   def render_list(request)
-  	response = Rack::Response.new(request.path)
+  	response = Rack::Response.new
+  	
+  	response.write(request["rank"])
   	response.finish
   end
   
