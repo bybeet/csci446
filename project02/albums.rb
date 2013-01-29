@@ -3,10 +3,10 @@ require 'rack'
 class Top100Albums
   def call(env)
   	request = Rack::Request.new(env)
-  	albums = File.open("top_100_albums.txt").read
+  	#albums = File.open("top_100_albums.txt").read
   	@info = Array.new
   	i = 1
-  	albums.each_line do |album|
+  	File.open("top_100_albums.txt").read.each_line do |album|
   		text = album.split(",")
   		@info.push({ :rank=> i, :name=> text[0], :year=> text[1].strip })
   		i += 1
@@ -27,19 +27,17 @@ class Top100Albums
   
   def render_form(request)
   	response = Rack::Response.new
-  	File.open("form.html", "rb") { |form| response.write(form.read) }
+  	response.write(File.open("form.html", "rb").read)
   	1.upto(100) { |i| response.write("<option value=\"#{i}\">#{i}</option>\n") }
-  	File.open("form2.html", "rb") { |form| response.write(form.read) }
+  	response.write(File.open("form2.html", "rb").read)
   	response.finish
   end
   
   def render_list(request)
   	response = Rack::Response.new
-  	File.open("list.html", "rb") { |list| response.write(list.read) }
+  	response.write(File.open("list.html", "rb").read)
   	response.write("<h2>Sorted by #{request['order'].capitalize}</h2>")
-  	order = request['order'].to_sym
-  	@info.sort_by! { |x| x[order] }
-  	@info.each do |album|
+  	@info.sort_by { |x| x[request['order'].to_sym] }.each do |album|
   		if album[:rank] == request['rank'].to_sym
   			response_write = "<tr class=\"highlight\">
   			<td>#{album[:rank]}</td>
@@ -55,7 +53,7 @@ class Top100Albums
   		end
   		response.write(response_write)
   	end
-  	puts request['rank']
+  	response.write(File.open("list2.html", "rb").read)
   	response.finish
   end
   
