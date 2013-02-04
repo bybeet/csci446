@@ -10,7 +10,7 @@
 			<% @info.sort_by { |x| x[request['order'].to_sym] }.each do |album| %>
 			<% columns = "<td>#{album[:rank]}</td><td>#{album[:name]}</td><td>#{album[:year]}</td></tr>" %>
 				<% if album[:rank] == request['rank'].to_i %>
-					<tr class=\"highlight\"><%= columns %>
+					<tr class="highlight"><%= columns %>
 				<% else %>
 					<tr><%= columns %>
 				<% end %>
