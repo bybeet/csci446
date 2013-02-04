@@ -31,7 +31,7 @@ class Top100Albums
   
   def render_list(request)
   	response = Rack::Response.new
-    response.write(ERB.new(File.read("album_output.erb")).result(binding))
+    response.write(ERB.new(File.read("list.erb")).result(binding))
   	response.finish
   end
   
