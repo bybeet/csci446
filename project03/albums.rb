@@ -1,15 +1,10 @@
 require 'rack'
+require 'sqlite3'
 
 class Top100Albums
 	
 	def initialize
-		@info = Array.new
-	  	i = 1
-	  	File.open("top_100_albums.txt").read.each_line do |album|
-	  		text = album.split(",")
-	  		@info.push({ :rank=> i, :name=> text[0], :year=> text[1].strip })
-	  		i += 1
-	  	end
+		@albums = SQLite3::Database.new("albums.sqlite3.db")
 	end
 
   def call(env)
