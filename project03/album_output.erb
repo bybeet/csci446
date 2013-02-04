@@ -1,6 +1,20 @@
-<% columns = "<td>#{album[:rank]}</td><td>#{album[:name]}</td><td>#{album[:year]}</td></tr>" %>
-<% if album[:rank] == request['rank'].to_i %>
-  	<tr class=\"highlight\"><%= columns %>
-<% else %>
-  	<tr><%= columns %>
-<% end %>
+<html>
+	<head>
+		<title>Top 100 Albums of All Time</title>
+		<link rel="stylesheet" type="text/css" href="list.css">
+	</head>
+	<body>
+		<h1>Rolling Stone's Top 100 Albums of All Time</h1>
+		<p>Sorted by <%= request['order'].capitalize %></p>
+		<table>
+			<% @info.sort_by { |x| x[request['order'].to_sym] }.each do |album| %>
+			<% columns = "<td>#{album[:rank]}</td><td>#{album[:name]}</td><td>#{album[:year]}</td></tr>" %>
+				<% if album[:rank] == request['rank'].to_i %>
+					<tr class=\"highlight\"><%= columns %>
+				<% else %>
+					<tr><%= columns %>
+				<% end %>
+			<% end %>
+		</table>
+	</body>
+</html>

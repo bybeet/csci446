@@ -38,12 +38,7 @@ class Top100Albums
   
   def render_list(request)
   	response = Rack::Response.new
-  	response.write(File.open("list.html", "rb").read)
-  	response.write("<h2>Sorted by #{request['order'].capitalize}</h2>")
-  	@info.sort_by { |x| x[request['order'].to_sym] }.each do |album|
-  		response.write(ERB.new(File.read("album_output.erb")).result(binding))
-  	end
-  	response.write(File.open("list2.html", "rb").read)
+  	response.write(ERB.new(File.read("album_output.erb")).result(binding))
   	response.finish
   end
   
