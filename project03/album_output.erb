@@ -7,13 +7,13 @@
 		<h1>Rolling Stone's Top 100 Albums of All Time</h1>
 		<p>Sorted by <%= request['order'].capitalize %></p>
 		<table>
-			<% @info.sort_by { |x| x[request['order'].to_sym] }.each do |album| %>
-			<% columns = "<td>#{album[:rank]}</td><td>#{album[:name]}</td><td>#{album[:year]}</td></tr>" %>
-				<% if album[:rank] == request['rank'].to_i %>
-					<tr class="highlight"><%= columns %>
+			<% @albums.execute("SELECT * FROM albums ORDER BY #{request['order']};") do |album| %>
+				<% if album[3] == request['rank'].to_i %>
+					<tr class="highlight">
 				<% else %>
-					<tr><%= columns %>
+					<tr>
 				<% end %>
+				<td><%=album[3]%></td><td><%=album[1]%></td><td><%=album[2]%></td></tr>
 			<% end %>
 		</table>
 	</body>
