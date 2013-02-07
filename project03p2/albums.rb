@@ -15,5 +15,6 @@ get "/form" do
 end
 
 post "/list" do
-	
+	@albums = Album.all
+	erb :list
 end
