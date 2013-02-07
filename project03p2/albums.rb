@@ -7,9 +7,13 @@ DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/albums.sqlite3.db")
 set :port, 8080
 
 get "/" do
-	"Sinatra is working!"
+	redirect "/form"
 end
 
 get "/form" do
-  	response.write(ERB.new(File.read("views/form.erb")).result(binding))
+  	erb :form
+end
+
+post "/list" do
+	
 end
