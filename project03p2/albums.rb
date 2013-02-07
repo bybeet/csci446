@@ -11,5 +11,5 @@ get "/" do
 end
 
 get "/form" do
-	"Form test."
+  	response.write(ERB.new(File.read("views/form.erb")).result(binding))
 end
