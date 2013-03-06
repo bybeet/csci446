@@ -15,3 +15,10 @@ Product.create(title: 'Programming Ruby 1.9',
 			</p>},
 	image_url: 'ruby.jpg',
 	price: 49.95)
+Product.create(title: 'Essential Java Tools',
+	description:
+		%{<p>
+			Java is a language whose cross platform capabilities have it popping up everywhere. Taking a closer look at the tools that can help in building and deploying Java applications is huge bonus to productivity; such gains won't be found elsewhere.
+			</p>},
+	image_url: 'java.jpg',
+	price: 39.95)
