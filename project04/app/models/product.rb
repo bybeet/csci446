@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   has_many :line_items
 
-  before_destory :ensure_not_referenced_by_any_line_item
+  before_destroy :ensure_not_referenced_by_any_line_item
 
   attr_accessible :description, :image_url, :price, :title
   validates :title, :description, :image_url, presence: true
