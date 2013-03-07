@@ -9,7 +9,7 @@ class CombineItemsInCart < ActiveRecord::Migration
   				cart.line_items.where(product_id: product_id).delete_all
 
   				item = cart.line_items.build(product_id: product_id)
-  				items.quantity = quantity
+  				item.quantity = quantity
   				item.save!
   			end
   		end
